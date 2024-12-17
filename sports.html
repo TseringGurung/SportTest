@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select a Sport</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style> 
+body {
+  background-color: #f7f7f7;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+  background-color: #222;
+  color: #f7f7f7;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 500;
+  color: #ad2831;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 400;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #333;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+body.dark-mode .slider {
+  background-color: #333;
+}
+
+body.dark-mode .logo {
+  color: #f7f7f7;
+}
+
+.sports-selection {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.sports-selection h1 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  text-decoration: underline;
+}
+
+.sports-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+  row-gap: 100px;
+  justify-items: center;
+}
+
+.sport-card {
+  text-align: center;
+  background-color: #fff;
+  border: 2px solid #333;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  width: 200px;
+  
+}
+
+.sport-card img {
+  max-width: 100px;
+  margin-bottom: 10px;
+}
+
+.sport-card p {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+}
+
+.sport-card:hover {
+  transform: translateY(-5px);
+  background-color: #b4b4b4;
+  color: #fff;
+}
+
+body.dark-mode .sport-card {
+  background-color: #333;
+  border-color: #f7f7f7;
+  color: #f7f7f7;
+}
+
+body.dark-mode .sport-card:hover {
+  background-color: #f7f7f78e;
+  color: #333;
+}
+
+body.dark-mode footer {
+  background-color: #333;
+  color: #f7f7f7;
+}
+
+body.dark-mode .sports-selection {
+  background-color: #222;
+  color: #f7f7f7;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode p,
+body.dark-mode a,
+body.dark-mode li {
+  color: #f7f7f7;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #333;
+  transition: background-color 0.6s ease;
+}
+
+@media (max-width: 600px) {
+  .sports-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sport-card {
+    width: 100%;
+  }
+}
+</style> 
+
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <div class="logo">Sports Tracker</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="theme-toggle">
+            <label class="switch">
+                <input type="checkbox" id="theme-toggle-checkbox">
+                <span class="slider round"></span>
+            </label>
+            <span id="theme-label">Dark Mode</span>
+        </div>
+    </header>
+
+    <main>
+        <section class="sports-selection">
+            <h1>Select a Sport</h1>
+            <div class="sports-grid">
+                <a href="sports_html/nba.html" class="sport-card">
+                    <img src="images/NBAlogo.png" alt="NBA Basketball">
+                    <p>National Basketball Association</p>
+                </a>
+
+                <a href="sports_html/wnba.html" class="sport-card">
+                  <img src="images/WNBAlogo.png" alt="WNBA Women's Basketball">
+                  <p>Women’s National Basketball Association</p>
+                </a>
+
+                <a href="sports_html/nfl.html" class="sport-card">
+                    <img src="images/NFLlogo.png" alt="NFL Football">
+                    <p>National Football League</p>
+                </a>
+
+                <a href="sports_html/mlb.html" class="sport-card">
+                    <img src="images/MLBlogo.png" alt="MLB Baseball">
+                    <p>Major League Baseball</p>
+                </a>
+
+                <a href="sports_html/nhl.html" class="sport-card">
+                    <img src="images/NHLlogo.png" alt="NHL Hockey">
+                    <p>National Hockey League</p>
+                </a>
+                
+                <a href="sports_html/ncaa-bb.html" class="sport-card">
+                  <img src="images/NCAA_BB.png" alt="NCAA College Basketball">
+                  <p>College Basketball</p>
+                </a>
+
+                <a href="sports_html/NCAA-WBB.html" class="sport-card">
+                  <img src="images/NCAAWomenBasketball.webp" alt="NCAA College WBasketball">
+                  <p>Women’s College Basketball</p>
+                  </a>
+
+                <a href="sports_html/ncaa-fb.html" class="sport-card">
+                  <img src="images/NCAA_FB.png" alt="NCAA College Football">
+                  <p>College Football</p>
+                </a>
+
+                <a href="sports_html/premier.html" class="sport-card">
+                    <img src="images/PremierLeague.webp" alt="Premier League Soccer">
+                    <p>Premier League Soccer</p>
+                </a>
+
+                <a href="sports_html/mls.html" class="sport-card">
+                  <img src="images/MLSlogo.png" alt="MLS Soccer">
+                  <p>Major League Soccer</p>
+                </a>
+
+            </div>
+        </section>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>

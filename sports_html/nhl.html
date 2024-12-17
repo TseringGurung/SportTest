@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NHL - Sports Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="../sport.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <h1 class="title">Sports Tracker</h1>
+        <div class="header-right">
+            <input type="text" id="search-bar" placeholder="Search...">
+           
+            <div class="theme-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle-checkbox">
+                    <span class="slider round"></span>
+                </label>
+                <span id="theme-label">Dark Mode</span>
+            </div>
+            <div class="home-link">
+                <a href="../index.html">Home</a>
+            </div>
+            <div>
+                <a href="../sports.html">Sports</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="emoji-container">
+        <div class="emoji">🏒</div>
+        <div class="emoji">🏒</div>
+        <div class="emoji">🏒</div>
+        <div class="emoji">🏒</div>
+        <div class="emoji">🏒</div>
+        <div class="emoji">🏒</div>
+        <div class="emoji">🏒</div>
+        <div class="emoji">🏒</div>
+    </section>
+
+    <!-- NHL Section -->
+    <section class="home-section">
+        <h1 class="home-heading">NHL</h1>
+        <div class="paragraph-container">
+            <p class="home-paragraph">
+                Welcome to the NHL section. Track real-time statistics, player performance, and game outcomes for the National Hockey League (NHL).
+            </p>
+        </div>
+    </section>
+
+    <!-- Stacked Layout for Info Containers -->
+    <div class="container">
+        <section class="section">
+            <h2>NHL Scores</h2>
+            <div id="nhl-scores">
+                <!-- Scores dynamically inserted here -->
+            </div>
+        </section>
+
+        <body>
+        <section class="section">
+            <h2>NHL Teams</h2>
+            <div id="nhl-teams">
+                <!-- Teams dynamically inserted here -->
+            </div>
+        </section>
+        
+        <!-- Move popup here, outside any sections -->
+        <div id="player-popup" class="popup" style="display: none;">
+            <div class="popup-content">
+                <span class="close-btn" onclick="closePopup()">×</span>
+                <h2 id="team-name"></h2>
+                <ul id="player-list"></ul>
+            </div>
+        </div>
+    </body>
+
+        <section class="section">
+            <h2>Latest NHL News</h2>
+            <div id="nhl-news">
+                <!-- News dynamically inserted here -->
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Sports Tracker. All rights reserved.</p>
+    </footer>
+
+    <script src="../sports_js/nhlplayers.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>

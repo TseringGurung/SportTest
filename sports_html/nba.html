@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA - Sports Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="../sport.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <h1 class="title">Sports Tracker</h1>
+        <div class="header-right">
+            <input type="text" id="search-bar" placeholder="Search...">
+            <button id="show-comparison" class="compare-button">Compare Teams</button>
+            <div class="theme-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle-checkbox">
+                    <span class="slider round"></span>
+                </label>
+                <span id="theme-label">Dark Mode</span>
+            </div>
+            <div class="home-link">
+                <a href="../index.html">Home</a>
+            </div>
+            <div>
+                <a href="../sports.html">Sports</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="emoji-container">
+        <div class="emoji">🏀</div>
+        <div class="emoji">🏀</div>
+        <div class="emoji">🏀</div>
+        <div class="emoji">🏀</div>
+        <div class="emoji">🏀</div>
+        <div class="emoji">🏀</div>
+        <div class="emoji">🏀</div>
+        <div class="emoji">🏀</div>
+    </section>
+
+    <!-- NBA Section -->
+    <section class="home-section">
+        <h1 class="home-heading">NBA</h1>
+        <div class="paragraph-container">
+            <p class="home-paragraph">
+                Welcome to the NBA section. Track real-time statistics, player performance, and game outcomes for National Basketball Association (NBA).
+            </p>
+        </div>
+    </section>
+
+    <!-- Stacked Layout for Info Containers -->
+    <div class="container">
+        <section class="section">
+            <h2>NBA Scores</h2>
+            <div id="nba-scores">
+                <!-- Scores dynamically inserted here -->
+            </div>
+        </section>
+
+        <body>
+            <!-- Other content and sections -->
+            <section class="section">
+                <h2>NBA Teams</h2>
+                <div id="nba-teams">
+                    <!-- Teams dynamically inserted here -->
+                </div>
+            </section>
+        
+            <!-- Move popup here, outside any sections -->
+            <div id="player-popup" class="popup" style="display: none;">
+                <div class="popup-content">
+                    <span class="close-btn" onclick="closePopup()">×</span>
+                    <h2 id="team-name"></h2>
+                    <ul id="player-list"></ul>
+                </div>
+            </div>
+        </body>
+
+        <section class="section">
+            <h2>Latest NBA News</h2>
+            <div id="nba-news">
+                <!-- News dynamically inserted here -->
+            </div>
+        </section>
+
+        <!-- New Team Comparison Section -->
+        <section class="section">
+            <h2>Team Comparisons</h2>
+            <div class="comparison-controls">
+                <div class="comparison-selector">
+                    <select id="team1-select" class="team-select">
+                        <option value="">Select First Team</option>
+                    </select>
+                    <select id="team2-select" class="team-select">
+                        <option value="">Select Second Team</option>
+                    </select>
+                    <button id="compare-btn" class="compare-button">Compare Teams</button>
+                </div>
+            </div>
+            <div id="comparison-stats"></div>
+            <div id="team-trends"></div>
+            <div class="comparison-charts">
+                <div id="head-to-head-stats"></div>
+                <div id="performance-comparison"></div>
+            </div>
+            <div id="player-comparison-container"></div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Sports Tracker. All rights reserved.</p>
+    </footer>
+
+    <script src="../sports_js/nbaplayers.js"></script>
+    <script src="../script.js"></script>
+    <script>
+        // Initialize comparison dropdowns with NBA teams
+        document.addEventListener('DOMContentLoaded', function() {
+            const teams = Object.keys(nbaPlayerData);
+            const team1Select = document.getElementById('team1-select');
+            const team2Select = document.getElementById('team2-select');
+            
+            teams.forEach(team => {
+                const option1 = new Option(team, team);
+                const option2 = new Option(team, team);
+                team1Select.add(option1);
+                team2Select.add(option2);
+            });
+
+            // Smooth scroll to comparison section when clicking compare button in header
+            document.getElementById('show-comparison').addEventListener('click', function() {
+                document.querySelector('.section:last-of-type').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            });
+
+            // Initialize comparison functionality
+            document.getElementById('compare-btn').addEventListener('click', function() {
+                const team1 = team1Select.value;
+                const team2 = team2Select.value;
+                
+                if (team1 && team2) {
+                    fetchHeadToHeadStats(team1, team2, 'basketball/nba');
+                    showTeamTrends(team1, 'basketball/nba');
+                    showTeamTrends(team2, 'basketball/nba');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
+    
